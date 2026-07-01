@@ -1,21 +1,21 @@
 #include "Tension.h"
 
 MedidaTension leerTensionCompleta() {
-    MedidaTension resultado; // Creamos nuestra caja vacía
+    MedidaTension resultado;
 
-    // Realizamos la lectura
-    int suma = 0;
+    long suma = 0;
     for (int i = 0; i < 20; i++) {
         suma += analogRead(34);
         delay(2);
     }
+    resultado.adc = (int)(suma / 20);
 
-    resultado.adc = suma / 20; //calculo de promedio
-    resultado.voltaje = (resultado.adc * 3.3 / 4095.0); //calculo de tension
-    resultado.porcentaje = (resultado.voltaje * 100.0) / 3.1; //calculo del porcentaje
+    resultado.voltaje = (resultado.adc * 3.3 / 4095.0);
 
-    if (resultado.porcentaje > 100.0) resultado.porcentaje = 100.0;
-    if (resultado.porcentaje < 0.0) resultado.porcentaje = 0.0;
-    
-    return resultado; 
+    float voltajeLimpio = constrain(resultado.voltaje, 0.1, 3.1);
+    resultado.porcentaje = ((voltajeLimpio - 0.1) / (3.1 - 0.1)) * 100.0;
+
+    resultado.voltajeBateria = ((voltajeLimpio - 0.1) / (3.1 - 0.1)) * (56.0 - 48.0) + 48.0;
+
+    return resultado;
 }

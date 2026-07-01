@@ -11,11 +11,16 @@ void loop() {
 
     Serial.print("Voltaje: ");
     Serial.print(datos.voltaje, 3);
+
     Serial.print(" V | ADC: ");
     Serial.println(datos.adc);
+
     Serial.print("Porcentaje: ");
     Serial.print(datos.porcentaje, 2);
     Serial.println(" %");
 
-    delay(100);
+    Serial.print("Voltaje de Batería: ");
+    Serial.print(datos.voltajeBateria, 2);
+    Serial.println("V");
+    delay(500);
 }

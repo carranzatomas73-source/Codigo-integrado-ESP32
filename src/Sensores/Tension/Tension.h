@@ -7,9 +7,9 @@ struct MedidaTension {
     float voltaje;
     int adc;
     float porcentaje;
-};
+    float voltajeBateria;
+}; 
 
-// La función ahora devuelve el "paquete" completo
 MedidaTension leerTensionCompleta();
 
 #endif
