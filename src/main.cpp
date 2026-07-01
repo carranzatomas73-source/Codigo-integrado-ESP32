@@ -13,14 +13,17 @@ void loop() {
     Serial.print(datos.voltaje, 3);
 
     Serial.print(" V | ADC: ");
-    Serial.println(datos.adc);
+    Serial.print(datos.adc);
+    Serial.print(" | ");
 
     Serial.print("Porcentaje: ");
     Serial.print(datos.porcentaje, 2);
-    Serial.println(" %");
+    Serial.print(" %");
+    Serial.print(" | ");
 
     Serial.print("Voltaje de Batería: ");
     Serial.print(datos.voltajeBateria, 2);
     Serial.println("V");
-    delay(500);
+    
+    delay(100);
 }
