@@ -10,9 +10,12 @@ MedidaTension leerTensionCompleta() {
         delay(2);
     }
 
-    // Llenamos la caja
-    resultado.adc = suma / 20;
-    resultado.voltaje = (resultado.adc * 3.3 / 4095.0);
+    resultado.adc = suma / 20; //calculo de promedio
+    resultado.voltaje = (resultado.adc * 3.3 / 4095.0); //calculo de tension
+    resultado.porcentaje = (resultado.voltaje * 100.0) / 3.1; //calculo del porcentaje
 
-    return resultado; // Devolvemos la caja llena
+    if (resultado.porcentaje > 100.0) resultado.porcentaje = 100.0;
+    if (resultado.porcentaje < 0.0) resultado.porcentaje = 0.0;
+    
+    return resultado; 
 }

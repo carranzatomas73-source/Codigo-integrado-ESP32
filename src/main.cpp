@@ -7,12 +7,15 @@ void setup() {
 }
 
 void loop() {
-    MedidaTension datos = leerTensionCompleta(); // Recibimos el paquete
+    MedidaTension datos = leerTensionCompleta(); 
 
     Serial.print("Voltaje: ");
     Serial.print(datos.voltaje, 3);
     Serial.print(" V | ADC: ");
     Serial.println(datos.adc);
+    Serial.print("Porcentaje: ");
+    Serial.print(datos.porcentaje, 2);
+    Serial.println(" %");
 
     delay(100);
 }
