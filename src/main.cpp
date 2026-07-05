@@ -23,7 +23,11 @@ void loop() {
 
     Serial.print("Voltaje de Batería: ");
     Serial.print(datos.voltajeBateria, 2);
-    Serial.println("V");
-    
+    Serial.print("V");
+    Serial.print(" | ");
+
+    Serial.print("ADC Crudo: ");
+    Serial.println(datos.adc_crudo);
+
     delay(100);
 }

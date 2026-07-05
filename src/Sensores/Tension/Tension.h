@@ -8,6 +8,7 @@ struct MedidaTension {
     int adc;
     float porcentaje;
     float voltajeBateria;
+    int adc_crudo;
 }; 
 
 MedidaTension leerTensionCompleta();
